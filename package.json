@@ -1,0 +1,18 @@
+{
+  "name": "independiente-al-dia",
+  "version": "0.1.0",
+  "description": "Asistente por WhatsApp para liquidar la seguridad social de independientes en Colombia",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch --env-file=.env src/server.js",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
