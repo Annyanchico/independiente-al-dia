@@ -11,7 +11,8 @@ Esta es la **fase 1 (validación)**: calculadora gratuita y captura de interesad
 3. Pide los ingresos del mes (entiende "3.500.000", "3,5 millones", "800 mil"…) y, si es cuenta propia, los costos.
 4. Si es contrato, pide la clase de riesgo de la ARL.
 5. Muestra el detalle y el total a pagar, y pregunta si le interesa el plan mensual.
-6. Guarda cada cálculo y cada interesado en `eventos.jsonl`.
+6. Guarda cada cálculo y cada interesado en `eventos.jsonl` y en los registros del servidor (líneas `EVENTO`).
+7. Si la persona pide el plan, le avisa por WhatsApp al asesor configurado en `ASESOR_WHATSAPP` con su nombre, número (enlace wa.me) y el cálculo. El asesor le escribe desde el WhatsApp de atención de la empresa.
 
 ## Estructura
 
