@@ -10,6 +10,8 @@ const config = {
   token: process.env.WHATSAPP_TOKEN,
   phoneNumberId: process.env.WHATSAPP_PHONE_NUMBER_ID,
   version: process.env.GRAPH_API_VERSION ?? 'v25.0',
+  // Número del asesor que recibe el aviso de nuevos interesados (solo dígitos, con indicativo)
+  asesorWhatsApp: (process.env.ASESOR_WHATSAPP ?? '').replace(/\D/g, '') || null,
 };
 
 const modoPrueba = !config.token || !config.phoneNumberId;
@@ -29,8 +31,11 @@ const sesiones = crearAlmacenSesiones({ minutosExpiracion: 30 });
 
 // Por ahora los eventos (cálculos e interesados) se guardan en un archivo JSONL.
 // Más adelante: base de datos / CRM.
-const registrarEvento = (evento) =>
+const registrarEvento = (evento) => {
+  // También a la consola, para verlo en los registros de Render (el archivo se borra al reiniciar)
+  console.log('EVENTO', JSON.stringify(evento));
   appendFile('eventos.jsonl', `${JSON.stringify(evento)}\n`).catch((e) => console.error(e.message));
+};
 
 crearApp({ config, whatsapp, sesiones, registrarEvento }).listen(config.puerto, () => {
   console.log(`Independiente al Día escuchando en el puerto ${config.puerto}`);

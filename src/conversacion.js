@@ -162,10 +162,11 @@ export function procesarMensaje(sesion, entrada) {
         return {
           sesion: actual,
           respuestas: [texto(
-            '¡Genial! 🙌 Un asesor te escribirá pronto para contarte cómo te dejamos la '
-            + 'planilla lista cada mes, con certificado y cuenta de cobro incluidos.',
+            '¡Genial! 🙌 Un asesor de *Independiente al Día* te escribirá pronto desde nuestro '
+            + 'WhatsApp de atención para contarte cómo te dejamos la planilla lista cada mes, '
+            + 'con certificado y cuenta de cobro incluidos.',
           )],
-          evento: { tipo: 'interesado_plan', datos: actual.datos },
+          evento: { tipo: 'interesado_plan', datos: actual.datos, resultado: actual.resultado },
         };
       default:
         break;
